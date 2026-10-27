@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Max Whicher</title>
-<meta name="description" content="Max Whicher, Co-Founder and Chief Business Officer of Spin Group, the London-based creative-first social media agency group.">
+<meta name="description" content="Max Whicher is a London-based founder, investor and trustee. Co-founder of Spin Group, backer of consumer brands, Meta UK Agency Advisory Board member and LBB Creative Council judge.">
 <meta property="og:title" content="Max Whicher">
-<meta property="og:description" content="Co-Founder and Chief Business Officer, Spin Group.">
+<meta property="og:description" content="Founder, investor, trustee. London.">
 <meta name="theme-color" content="#FFE9DF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23D9CCFF'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='16' fill='%231D1B33'%3Emw%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,6 +82,25 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
 .spark{position:fixed;z-index:3;pointer-events:none;width:22px;height:22px;margin:-11px 0 0 -11px;animation:spark 1.1s ease-out forwards}
 @keyframes spark{0%{transform:scale(.2) rotate(0)}40%{transform:scale(1.2) rotate(90deg)}100%{transform:translateY(-60px) scale(0) rotate(200deg);opacity:0}}
 
+.lbl{margin:clamp(4px,1vh,10px) 0 -8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-family:var(--body)}
+.globe{display:flex;flex-direction:column;gap:12px;margin-top:clamp(8px,2vh,20px)}
+.globe h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-family:var(--body)}
+.clocks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.clock{display:flex;flex-direction:column;gap:4px;padding:12px 16px 14px;border:1.5px solid var(--ink);border-radius:16px;background:var(--c);box-shadow:3px 3px 0 var(--ink);transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.clock:hover{transform:translateY(-3px) rotate(-1deg)}
+.clock.off{background:rgba(255,255,255,.5);box-shadow:none}
+.clock .top-row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.clock .state{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.04em;color:var(--soft)}
+.clock .state i{width:8px;height:8px;border-radius:50%;background:#46C98B;animation:pulse 2s infinite}
+.clock.off .state i{background:var(--soft);opacity:.4;animation:none}
+.clock .t{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 110;font-size:clamp(26px,3.4vw,34px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.clock .t .colon{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:.2}}
+.clock .city{font-size:14px}
+.globe-line{margin:0;font-size:14px;color:var(--soft)}
+.globe-line span{font-weight:700;color:var(--ink)}
+@media (max-width:760px){.clocks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce){.clock .t .colon{animation:none}}
 .backs{display:flex;flex-direction:column;gap:12px;margin-top:clamp(8px,2vh,20px)}
 .backs h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-family:var(--body)}
 .backs-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
@@ -105,23 +124,25 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
 <div class="page" id="page">
   <div class="top">
     <span class="chip"><span class="pulse" aria-hidden="true"></span>Southwark, London</span>
-    <span class="chip">Co-Founder &amp; CBO, Spin Group</span>
+    <span class="chip">Founder · Investor · Trustee</span>
   </div>
 
   <main class="hero">
     <h1 id="name" aria-label="Max Whicher"><span class="line" aria-hidden="true">max</span><span class="line" aria-hidden="true">whicher</span></h1>
-    <p class="lede">I make brands <span class="swap" id="swap" aria-live="polite">famous</span> on social.</p>
-    <p class="sub">Raised £80k for a skatepark at 16. Bought the bike shop I worked in at 19. Co-founded Spin at 23, no degree required. 600+ brands and 25+ countries later, we're a 100+ person group.</p>
+    <p class="lede">I build and back <span class="swap" id="swap" aria-live="polite">brands people talk about</span>.</p>
+    <p class="sub">Raised £80k for a skatepark at 16. Bought the bike shop I worked in at 19. Co-founded Spin at 23, no degree required. These days I build companies, back founders, and sit on the boards that shape our industry.</p>
 
-    <div class="board" id="board" aria-label="The group. Stickers can be dragged, or moved with arrow keys.">
-      <div class="sticker" tabindex="0" data-x=".00" data-y=".02" data-r="-4" style="background:var(--peach)"><b>spin</b><span>Co-Founder &amp; CBO · Agency of the Year 2025</span></div>
-      <div class="sticker" tabindex="0" data-x=".30" data-y=".10" data-r="3" style="background:var(--mint)"><b>be a bear</b><span>Board member · YouTube growth</span></div>
-      <div class="sticker" tabindex="0" data-x=".58" data-y=".00" data-r="-2" style="background:var(--lilac)"><b>tiny studios</b><span>B-Corp production studio</span></div>
+    <h2 class="lbl">what i'm up to</h2>
+    <div class="board" id="board" aria-label="What I'm up to. Stickers can be dragged, or moved with arrow keys.">
+      <div class="sticker" tabindex="0" data-x=".00" data-y=".02" data-r="-4" style="background:var(--peach)"><b>spin group</b><span>Co-Founder · Spin, Be A Bear, Tiny Studios</span></div>
+      <div class="sticker" tabindex="0" data-x=".34" data-y=".10" data-r="3" style="background:var(--mint)"><b>angel investor</b><span>Consumer brands, early stage</span></div>
+      <div class="sticker" tabindex="0" data-x=".62" data-y=".00" data-r="-2" style="background:var(--lilac)"><b>speaker</b><span>BBC 100 · non-uni routes</span></div>
       <div class="sticker" tabindex="0" data-x=".06" data-y=".54" data-r="2" style="background:var(--butter)"><b>meta</b><span>UK Agency Advisory Board</span></div>
       <div class="sticker" tabindex="0" data-x=".36" data-y=".58" data-r="-5" style="background:var(--pink)"><b>lbb creative council</b><span>Judge</span></div>
       <div class="sticker" tabindex="0" data-x=".66" data-y=".50" data-r="4" style="background:var(--sky)"><b>chance for childhood</b><span>Trustee</span></div>
       <span class="hint">psst, drag them</span>
     </div>
+
 
     <section class="backs" aria-labelledby="backs-h">
       <h2 id="backs-h">brands i back</h2>
@@ -173,14 +194,43 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
   requestAnimationFrame(frame);
 
   /* rotating word */
-  const words=["famous","loved","unskippable","talked about","culturally relevant","impossible to scroll past"];
+  const words=["brands people talk about","founders with taste","teams that ship","ideas that travel","good causes","things worth queuing for"];
   const swap=document.getElementById("swap");let wi=0;
   function setWord(w){swap.replaceChildren();[...w].forEach((ch,i)=>{const s=document.createElement("span");s.className="l";s.textContent=ch===" "?" ":ch;s.style.animationDelay=(i*25)+"ms";swap.append(s)});swap.style.backgroundColor=pastels[wi%pastels.length]}
   setWord(words[0]);
   if(!reduce)setInterval(()=>{wi=(wi+1)%words.length;setWord(words[wi])},2200);
 
+  /* world clocks: edit cities here */
+  const CITIES=[
+    {city:"London",region:"EMEA",tz:"Europe/London",c:"var(--peach)"},
+    {city:"Dubai",region:"EMEA",tz:"Asia/Dubai",c:"var(--butter)"},
+    {city:"Shenzhen",region:"APAC",tz:"Asia/Shanghai",c:"var(--mint)"},
+    {city:"São Paulo",region:"LATAM",tz:"America/Sao_Paulo",c:"var(--lilac)"}
+  ];
+  const clocksEl=document.getElementById("clocks");
+  if(clocksEl){
+  const cards=CITIES.map(x=>{
+    const el=document.createElement("div");el.className="clock";el.style.setProperty("--c",x.c);
+    el.innerHTML='<div class="top-row"><span>'+x.region+'</span><span class="state"><i></i><b></b></span></div><div class="t" aria-live="off"></div><div class="city">'+x.city+'</div>';
+    clocksEl.append(el);return{x,el,t:el.querySelector(".t"),s:el.querySelector(".state b")};
+  });
+  function tick(){
+    const now=new Date();let awake=0;
+    for(const k of cards){
+      const parts=Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:k.x.tz,hour:"2-digit",minute:"2-digit",weekday:"short",hourCycle:"h23"}).formatToParts(now).map(p=>[p.type,p.value]));
+      const h=+parts.hour,wk=!/Sat|Sun/.test(parts.weekday);const on=wk&&h>=9&&h<19;
+      if(on)awake++;
+      k.t.innerHTML=parts.hour+'<span class="colon">:</span>'+parts.minute;
+      k.s.textContent=on?"working":(h>=23||h<6?"asleep":"off");
+      k.el.classList.toggle("off",!on);
+    }
+    document.getElementById("awake").textContent=awake===CITIES.length?"All":awake===0?"None":String(awake);
+  }
+  tick();setInterval(tick,15000);
+  }
+
   /* marquee */
-  const items=["social media agency of the year 2025","600+ brands","25+ countries","energy always wins","spin","be a bear","tiny studios","oat cult","acid running","janji","heights","don't rush, but don't wait"];
+  const items=["founder","investor","trustee","no degree required","agency of the year 2025","600+ brands","25+ countries","meta advisory board","lbb judge","oat cult","acid running","janji","heights","energy always wins","don't rush, but don't wait"];
   const track=document.getElementById("track");
   const half=document.createElement("span");
   items.forEach((t,i)=>{const dot=document.createElement("i");dot.style.background=pastels[i%pastels.length];half.append(document.createTextNode(t),dot)});
