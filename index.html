@@ -82,6 +82,17 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
 .spark{position:fixed;z-index:3;pointer-events:none;width:22px;height:22px;margin:-11px 0 0 -11px;animation:spark 1.1s ease-out forwards}
 @keyframes spark{0%{transform:scale(.2) rotate(0)}40%{transform:scale(1.2) rotate(90deg)}100%{transform:translateY(-60px) scale(0) rotate(200deg);opacity:0}}
 
+.backs{display:flex;flex-direction:column;gap:12px;margin-top:clamp(8px,2vh,20px)}
+.backs h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-family:var(--body)}
+.backs-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.bk{position:relative;display:flex;flex-direction:column;gap:2px;padding:14px 16px 15px;border:1.5px solid var(--ink);border-radius:16px;background:rgba(255,255,255,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink);text-decoration:none;overflow:hidden;isolation:isolate;transition:transform .2s cubic-bezier(.3,1.6,.5,1),box-shadow .2s}
+.bk::before{content:"";position:absolute;inset:0;background:var(--c);transform:translateY(101%);transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.bk:hover,.bk:focus-visible{transform:translate(-2px,-3px) rotate(-1deg);box-shadow:4px 5px 0 var(--ink)}
+.bk:hover::before,.bk:focus-visible::before{transform:none}
+.bk:focus-visible{outline:3px dashed var(--ink);outline-offset:4px}
+.bk b{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 125;font-size:20px;line-height:1.05;text-transform:lowercase}
+.bk span{font-size:13px;color:var(--soft)}
+@media (max-width:760px){.backs-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.board{height:360px}.hint{display:none}.sticker{max-width:46vw;padding:8px 12px 9px}.sticker b{font-size:16px}.sticker span{font-size:12px}}
 @media (prefers-reduced-motion:reduce){.blob,.track,.pulse{animation:none}.swap .l{animation:none}}
 </style>
@@ -111,6 +122,16 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
       <div class="sticker" tabindex="0" data-x=".66" data-y=".50" data-r="4" style="background:var(--sky)"><b>chance for childhood</b><span>Trustee</span></div>
       <span class="hint">psst, drag them</span>
     </div>
+
+    <section class="backs" aria-labelledby="backs-h">
+      <h2 id="backs-h">brands i back</h2>
+      <div class="backs-row">
+        <a class="bk" style="--c:var(--butter)" href="https://oatcult.com" target="_blank" rel="noopener"><b>oat cult</b><span>oatcult.com &#8599;</span></a>
+        <a class="bk" style="--c:var(--pink)" href="https://acidrunning.com" target="_blank" rel="noopener"><b>acid running</b><span>acidrunning.com &#8599;</span></a>
+        <a class="bk" style="--c:var(--mint)" href="https://janji.com" target="_blank" rel="noopener"><b>janji</b><span>janji.com &#8599;</span></a>
+        <a class="bk" style="--c:var(--lilac)" href="https://www.heights.com/" target="_blank" rel="noopener"><b>heights</b><span>heights.com &#8599;</span></a>
+      </div>
+    </section>
   </main>
 
   <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
@@ -159,7 +180,7 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
   if(!reduce)setInterval(()=>{wi=(wi+1)%words.length;setWord(words[wi])},2200);
 
   /* marquee */
-  const items=["social media agency of the year 2025","600+ brands","25+ countries","energy always wins","spin","be a bear","tiny studios","oat cult investor","don't rush, but don't wait"];
+  const items=["social media agency of the year 2025","600+ brands","25+ countries","energy always wins","spin","be a bear","tiny studios","oat cult","acid running","janji","heights","don't rush, but don't wait"];
   const track=document.getElementById("track");
   const half=document.createElement("span");
   items.forEach((t,i)=>{const dot=document.createElement("i");dot.style.background=pastels[i%pastels.length];half.append(document.createTextNode(t),dot)});
