@@ -3,11 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Max Whicher</title>
+<title>Max Whicher | Founder, Investor &amp; Trustee, London</title>
 <meta name="description" content="Max Whicher is a London-based founder, investor and trustee. Co-founder of Spin Group, backer of consumer brands, Meta UK Agency Advisory Board member and LBB Creative Council judge.">
 <meta property="og:title" content="Max Whicher">
 <meta property="og:description" content="Founder, investor, trustee. London.">
-<meta name="theme-color" content="#FFE9DF">
+<meta name="theme-color" content="#FFF6F1">
+<link rel="canonical" href="https://maxwhicher.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Max Whicher">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://maxwhicher.com/">
+<meta property="og:site_name" content="Max Whicher">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://maxwhicher.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Max Whicher: founder, investor, trustee">
+<meta property="profile:first_name" content="Max">
+<meta property="profile:last_name" content="Whicher">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Max Whicher">
+<meta name="twitter:description" content="Founder, investor, trustee. London.">
+<meta name="twitter:image" content="https://maxwhicher.com/og.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Max Whicher", "url": "https://maxwhicher.com/", "image": "https://maxwhicher.com/og.png", "jobTitle": "Co-Founder and Chief Business Officer", "description": "London-based founder, investor and trustee. Co-founder of Spin Group, angel investor in consumer brands, Meta UK Agency Advisory Board member and LBB Creative Council judge.", "worksFor": {"@type": "Organization", "name": "Spin Group", "url": "https://spinbrands.com"}, "homeLocation": {"@type": "Place", "name": "London, United Kingdom"}, "memberOf": [{"@type": "Organization", "name": "Meta UK Agency Advisory Board"}, {"@type": "Organization", "name": "LBB Creative Council"}, {"@type": "Organization", "name": "Chance for Childhood", "url": "https://chanceforchildhood.org"}], "knowsAbout": ["Social media marketing", "Creative agencies", "Brand building", "Consumer brands", "Angel investing", "YouTube growth"], "sameAs": ["https://www.linkedin.com/in/maxwhicher-spin/"]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23D9CCFF'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial Black,sans-serif' font-size='16' fill='%231D1B33'%3Emw%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Inter+Tight:wght@400;500;600&display=swap">
@@ -112,7 +132,14 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
 .bk b{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 125;font-size:20px;line-height:1.05;text-transform:lowercase}
 .bk span{font-size:13px;color:var(--soft)}
 @media (max-width:760px){.backs-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.board{height:360px}.hint{display:none}.sticker{max-width:46vw;padding:8px 12px 9px}.sticker b{font-size:16px}.sticker span{font-size:12px}}
+@media (max-width:560px){
+  .top{font-size:12px;gap:8px}.chip{padding:5px 10px}
+  .board{height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 12px;margin-top:8px}
+  .hint{display:none}
+  .sticker{position:static;max-width:none;touch-action:auto;cursor:default;padding:9px 12px 10px;box-shadow:3px 3px 0 var(--ink)}
+  .sticker:nth-child(odd){transform:rotate(-1.5deg)}.sticker:nth-child(even){transform:rotate(1.5deg)}
+  .sticker b{font-size:16px}.sticker span{font-size:12px;line-height:1.35}
+}
 @media (prefers-reduced-motion:reduce){.blob,.track,.pulse{animation:none}.swap .l{animation:none}}
 </style>
 </head>
@@ -176,18 +203,24 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
     [...txt].forEach(c=>{const s=document.createElement("span");s.className="ch";s.textContent=c;line.append(s);chars.push(s)});
   });
   let mx=-9999,my=-9999;
-  addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY},{passive:true});
-  addEventListener("pointerleave",()=>{mx=my=-9999});
+  const finePointer=matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if(finePointer){
+    addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY},{passive:true});
+    addEventListener("pointerleave",()=>{mx=my=-9999});
+  }
+  let nameVisible=true;
+  if("IntersectionObserver" in window)new IntersectionObserver(es=>{nameVisible=es[0].isIntersecting},{threshold:0}).observe(h1);
   function frame(t){
+    if(!nameVisible||document.hidden){requestAnimationFrame(frame);return}
     for(let i=0;i<chars.length;i++){
-      const c=chars[i];const r=c.getBoundingClientRect();
-      const d=Math.hypot(mx-(r.left+r.width/2),my-(r.top+r.height/2));
-      const near=Math.max(0,1-d/320);
+      const c=chars[i];
+      let near=0,r=null;
+      if(finePointer&&mx>-9999){r=c.getBoundingClientRect();const d=Math.hypot(mx-(r.left+r.width/2),my-(r.top+r.height/2));near=Math.max(0,1-d/320)}
       const wave=reduce?0:Math.sin(t/700+i*.55);
       const wdth=Math.min(150,Math.max(50,92+wave*18+near*58));
       const wght=Math.min(900,Math.max(300,760+wave*90-near*360));
       c.style.fontVariationSettings=`"wdth" ${wdth.toFixed(1)},"wght" ${wght.toFixed(0)}`;
-      c.style.transform=near>0?`translateY(${(-near*10).toFixed(1)}px) rotate(${((mx-(r.left+r.width/2))/40*near).toFixed(1)}deg)`:"";
+      c.style.transform=near>0&&r?`translateY(${(-near*10).toFixed(1)}px) rotate(${((mx-(r.left+r.width/2))/40*near).toFixed(1)}deg)`:"";
     }
     requestAnimationFrame(frame);
   }
@@ -239,11 +272,12 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
   /* draggable stickers */
   const board=document.getElementById("board");
   const stickers=[...board.querySelectorAll(".sticker")];
+  const narrow=()=>matchMedia("(max-width:560px)").matches;
   function place(){
+    if(narrow()){stickers.forEach(s=>{s.style.left=s.style.top=s.style.transform=s.style.zIndex=""});return}
     const bw=board.clientWidth,bh=board.clientHeight;
     stickers.forEach((s,i)=>{
       let x=parseFloat(s.dataset.x),y=parseFloat(s.dataset.y);
-      if(bw<560){x=(i%2)*.5;y=Math.floor(i/2)*.32+(i%2)*.05}
       s._x=Math.min(x*bw,bw-s.offsetWidth);s._y=Math.min(y*bh,bh-s.offsetHeight);s._r=+s.dataset.r;draw(s);
     });
   }
@@ -252,6 +286,7 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
   let z=10;
   stickers.forEach(s=>{
     s.addEventListener("pointerdown",e=>{
+      if(narrow())return;
       s.setPointerCapture(e.pointerId);s.classList.add("lift");s.style.zIndex=++z;
       const sx=e.clientX-s._x,sy=e.clientY-s._y;let lx=e.clientX;
       const move=ev=>{s._x=ev.clientX-sx;s._y=ev.clientY-sy;s._r=Math.max(-14,Math.min(14,(ev.clientX-lx)*.8));lx=ev.clientX;clamp(s);draw(s)};
@@ -260,7 +295,7 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
     });
     s.addEventListener("keydown",e=>{
       const k={ArrowLeft:[-16,0],ArrowRight:[16,0],ArrowUp:[0,-16],ArrowDown:[0,16]}[e.key];
-      if(!k)return;e.preventDefault();s._x+=k[0];s._y+=k[1];clamp(s);s.style.zIndex=++z;draw(s);
+      if(!k||narrow())return;e.preventDefault();s._x+=k[0];s._y+=k[1];clamp(s);s.style.zIndex=++z;draw(s);
     });
   });
   addEventListener("keydown",e=>{if(e.key==="Escape")place()});
