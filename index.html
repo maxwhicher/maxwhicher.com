@@ -104,6 +104,16 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
 
 .lbl{margin:clamp(4px,1vh,10px) 0 -8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-family:var(--body)}
 .globe{display:flex;flex-direction:column;gap:12px;margin-top:clamp(8px,2vh,20px)}
+.globe.mini{gap:8px;margin-top:18px;padding-top:16px;border-top:1.5px dashed rgba(29,27,51,.25)}
+.globe.mini .clocks{gap:8px}
+.globe.mini .clock{flex-direction:row;align-items:baseline;justify-content:space-between;gap:8px;padding:8px 12px;border-radius:12px;box-shadow:2px 2px 0 var(--ink)}
+.globe.mini .clock.off{box-shadow:none}
+.globe.mini .clock .top-row{order:3;font-size:10px}
+.globe.mini .clock .state b{display:none}
+.globe.mini .clock .t{font-size:18px;order:2}
+.globe.mini .clock .city{order:1;font-size:13px;font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.globe.mini .globe-line{font-size:12px}
+@media (max-width:760px){.globe.mini .clock{flex-wrap:wrap;row-gap:2px}.globe.mini .clock .city{flex-basis:100%;order:0}.globe.mini .clock .t{flex:1}}
 .globe h2{margin:0;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-family:var(--body)}
 .clocks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .clock{display:flex;flex-direction:column;gap:4px;padding:12px 16px 14px;border:1.5px solid var(--ink);border-radius:16px;background:var(--c);box-shadow:3px 3px 0 var(--ink);transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
@@ -170,7 +180,6 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
       <span class="hint">psst, drag them</span>
     </div>
 
-
     <section class="backs" aria-labelledby="backs-h">
       <h2 id="backs-h">brands i back</h2>
       <div class="backs-row">
@@ -188,6 +197,12 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:16px;fl
     <a class="say" href="https://www.linkedin.com/in/maxwhicher-spin/" target="_blank" rel="noopener">say hello on linkedin &rarr;</a>
     <span>Energy always wins. &copy; 2026 Max Whicher</span>
   </footer>
+
+  <section class="globe mini" aria-labelledby="globe-h">
+    <h2 id="globe-h">around the clock</h2>
+    <div class="clocks" id="clocks"></div>
+    <p class="globe-line"><span id="awake">3</span> of these cities are at work right now. 100+ people across EMEA, APAC and LATAM. The sun never sets on the group chat.</p>
+  </section>
 </div>
 
 <script>
